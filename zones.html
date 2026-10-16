@@ -55,8 +55,25 @@ footer{color:#888;font-size:12px;padding:16px}
  .tools{top:0}
 }
 @media print{body{display:none}}
+:root{--navoff:64px}
+
+.nvbar{margin:10px 0;padding:8px 10px;background:#fff8e1;border:1px solid #e0c060;border-radius:6px}
+.nvh{font-size:15px;margin-bottom:6px}
+.nvchips{display:flex;flex-wrap:wrap;gap:8px}
+a.nv{display:inline-block;padding:8px 12px;min-height:40px;line-height:24px;font-size:16px;background:#fff;color:#1f3a5f;border:1px solid #1f3a5f;border-radius:20px;text-decoration:none}
+a.nv b{color:#c62828}a.nv sup{color:#888}
+a.nv:hover,a.nv:active{background:#1f3a5f;color:#fff}a.nv:hover b,a.nv:active b{color:#ffd54f}
+.nvempty{font-size:16px;color:#555;padding:4px 0}
+.nvnote{font-size:12px;color:#666;margin-top:6px}
+details.grp{scroll-margin-top:var(--navoff,12px);border-radius:4px}
+details.grp>summary{list-style:none;cursor:pointer}details.grp>summary::-webkit-details-marker{display:none}
+details.grp>summary h2{display:inline-block;margin-right:10px}
+details.grp>summary::before{content:"\25BC ";color:#667;font-size:12px}details.grp:not([open])>summary::before{content:"\25B6 "}
+a.up{font-size:14px;padding:4px 8px;display:inline-block;color:#1f3a5f}
+details.grp.flash{background:#fff3b0;outline:3px solid #e0a100;transition:background .4s}
+@media (max-width:760px){a.nv{font-size:17px;padding:10px 14px;min-height:44px}a.up{padding:8px 10px;font-size:15px}}
 </style></head><body>
-<header><h1>7 生活圈分區日報</h1><div class="d">資料日期：2026-10-16</div></header>
+<header id="top"><h1>7 生活圈分區日報</h1><div class="d">資料日期：2026-10-16</div></header>
 <div class="warn">內含個資，請勿外傳或截圖轉貼</div>
 <main><nav class="top"><a href="index.html">首頁</a><a href="xiaoguixi.html">小檜溪在售物件</a><a href="zones.html">7 生活圈分區日報</a><a href="owners.html">屋主自售全部在售</a></nav>
 <div class="tools"><input type="search" id="q" placeholder="搜尋社區、門牌、格局…"><button type="button" data-grade="A">A</button><button type="button" data-grade="B">B</button><button type="button" data-grade="C">C</button><button type="button" id="own">只看屋主自售</button></div>
@@ -103,6 +120,31 @@ footer{color:#888;font-size:12px;padding:16px}
 <footer>同仁版物件報表｜僅供公司同仁內部使用｜內含個資，請勿外傳或截圖轉貼</footer>
 <script type="application/json" id="page-meta">{"counts": {"recent": 108, "relisted": 1, "today": 85}, "date": "2026-10-16", "page": "zones"}</script>
 <script>
+window.NAV={reset:null};
+(function(){
+ function rowsOf(g){return Array.prototype.filter.call(g.querySelectorAll('table.list tr'),function(r){return r.querySelector('td');});}
+ function hidden(g){var rs=rowsOf(g);return rs.length>0&&!rs.some(function(r){return r.style.display!=='none';});}
+ function go(id){
+  var g=document.getElementById(id);
+  if(!g||!g.classList.contains('grp'))return false;
+  if(hidden(g)&&window.NAV.reset){window.NAV.reset(false);if(hidden(g))window.NAV.reset(true);}
+  for(var p=g;p;p=p.parentElement){if(p.tagName==='DETAILS')p.open=true;}
+  g.scrollIntoView({behavior:'smooth',block:'start'});
+  g.classList.add('flash');setTimeout(function(){g.classList.remove('flash');},2000);
+  try{history.replaceState(null,'','#'+id);}catch(e){}
+  return true;
+ }
+ function idOf(a){try{return decodeURIComponent(a.getAttribute('href').slice(1));}catch(e){return '';}}
+ document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+  var id=idOf(a);
+  if(id==='top'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});return;}
+  if(go(id))e.preventDefault();
+ });
+ window.addEventListener('hashchange',function(){go(decodeURIComponent(location.hash.slice(1)));});
+ window.addEventListener('load',function(){if(location.hash)go(decodeURIComponent(location.hash.slice(1)));});
+})();
+
 (function(){
  var q=document.getElementById('q'),grade='',owner=false;
  function apply(){
@@ -122,6 +164,12 @@ footer{color:#888;font-size:12px;padding:16px}
  });
  var ob=document.getElementById('own');
  if(ob)ob.addEventListener('click',function(){owner=!owner;ob.classList.toggle('on',owner);apply();});
+ window.NAV.reset=function(){
+  grade='';owner=false;if(q)q.value='';
+  document.querySelectorAll('button[data-grade]').forEach(function(x){x.classList.remove('on');});
+  if(ob)ob.classList.remove('on');
+  apply();
+ };
  document.querySelectorAll('.tabs button').forEach(function(b){
   b.addEventListener('click',function(){
    document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===b);});

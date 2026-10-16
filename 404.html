@@ -55,8 +55,25 @@ footer{color:#888;font-size:12px;padding:16px}
  .tools{top:0}
 }
 @media print{body{display:none}}
+:root{--navoff:64px}
+
+.nvbar{margin:10px 0;padding:8px 10px;background:#fff8e1;border:1px solid #e0c060;border-radius:6px}
+.nvh{font-size:15px;margin-bottom:6px}
+.nvchips{display:flex;flex-wrap:wrap;gap:8px}
+a.nv{display:inline-block;padding:8px 12px;min-height:40px;line-height:24px;font-size:16px;background:#fff;color:#1f3a5f;border:1px solid #1f3a5f;border-radius:20px;text-decoration:none}
+a.nv b{color:#c62828}a.nv sup{color:#888}
+a.nv:hover,a.nv:active{background:#1f3a5f;color:#fff}a.nv:hover b,a.nv:active b{color:#ffd54f}
+.nvempty{font-size:16px;color:#555;padding:4px 0}
+.nvnote{font-size:12px;color:#666;margin-top:6px}
+details.grp{scroll-margin-top:var(--navoff,12px);border-radius:4px}
+details.grp>summary{list-style:none;cursor:pointer}details.grp>summary::-webkit-details-marker{display:none}
+details.grp>summary h2{display:inline-block;margin-right:10px}
+details.grp>summary::before{content:"\25BC ";color:#667;font-size:12px}details.grp:not([open])>summary::before{content:"\25B6 "}
+a.up{font-size:14px;padding:4px 8px;display:inline-block;color:#1f3a5f}
+details.grp.flash{background:#fff3b0;outline:3px solid #e0a100;transition:background .4s}
+@media (max-width:760px){a.nv{font-size:17px;padding:10px 14px;min-height:44px}a.up{padding:8px 10px;font-size:15px}}
 </style></head><body>
-<header><h1>同仁版物件報表</h1><div class="d">資料日期：—</div></header>
+<header id="top"><h1>同仁版物件報表</h1><div class="d">資料日期：—</div></header>
 <div class="warn">內含個資，請勿外傳或截圖轉貼</div>
 <main>
 <p>找不到這個頁面。</p><p><a href="index.html">回首頁</a></p>
