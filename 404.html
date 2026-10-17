@@ -110,6 +110,31 @@ table.list tr.rowflash{outline:3px solid #e0a100}
  #fmap{height:65vh;min-height:320px}
  .mcard{font-size:15px}
 }
+
+.trd{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:2px 0 8px;padding:6px 10px;background:#fff;border:1px solid #dde3ee;border-radius:6px}
+.trd svg.spark{display:block;flex:0 1 300px;width:300px;max-width:100%;height:auto;background:#fafbfd;border-radius:4px}
+.trn{display:grid;grid-template-columns:repeat(3,auto);gap:2px 18px}
+.tv{display:flex;flex-direction:column;min-width:0}
+.tv i{font-style:normal;font-size:12px;color:#667;white-space:nowrap}
+.tv b{font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tv small{font-size:11px;color:#888}
+.tv b.up{color:#b00020}.tv b.dn{color:#2e7d32}
+.trnote{flex-basis:100%;font-size:12px;color:#777}
+.trd.nolvr{background:#f7f8fa}
+.lg{display:inline-block;width:16px;height:0;border-top:2px solid #1f5fbf;vertical-align:middle;margin:0 3px}
+.lg.lga{border-top:2px dashed #d2691e}
+.gm{display:block;font-size:11px;color:#667;white-space:nowrap;line-height:1.3;margin-top:2px}
+.gm.gw{white-space:normal;color:#8a5a00;max-width:10em}
+table.gt{width:auto;margin:6px 0;font-size:13px}table.gt th{position:static}table.gt td.n{text-align:center}
+details.gnote{margin:4px 0}details.gnote>summary{cursor:pointer;color:#1f3a5f;font-size:13px}
+@media (max-width:760px){
+ .trd{padding:6px 8px}
+ .trd svg.spark{flex:1 1 100%;width:100%}
+ .trn{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 8px;width:100%}
+ .tv b{font-size:16px}
+ .gm.gw{max-width:none}
+ table.gt{width:100%}
+}
 </style></head><body>
 <header id="top"><h1>同仁版物件報表</h1><div class="d">資料日期：—</div></header>
 <div class="warn">內含個資，請勿外傳或截圖轉貼</div>
