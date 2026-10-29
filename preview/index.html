@@ -223,6 +223,13 @@ body.v2.noscroll{overflow:hidden}
 .pc-act .call{flex:1;justify-content:flex-start;min-width:0}
 .pc-act .full{flex:1}
 .pc-act .nocall{display:none}
+.c-ph{margin-top:6px;display:grid;gap:2px}
+.ph-line{display:flex;align-items:center;gap:8px;min-height:36px;font-size:15px}
+.ph-lb{flex:0 0 auto;font-size:var(--fs-xs);color:var(--c-text-muted);min-width:3.2em}
+.ph-n{font-weight:700;font-variant-numeric:tabular-nums;color:var(--c-primary-700);user-select:text;-webkit-user-select:text;-webkit-touch-callout:default;overflow-wrap:anywhere;text-decoration:none}
+.ph-none{color:var(--c-text-muted);user-select:text;-webkit-user-select:text}
+.cp{flex:0 0 auto;margin-left:auto;min-height:32px;padding:0 10px;border:1px solid var(--c-border);background:#fff;color:var(--c-primary-700);border-radius:8px;font-size:var(--fs-xs);cursor:pointer}
+.cp.done{background:var(--c-grade-a-bg);color:var(--c-grade-a);border-color:var(--c-grade-a)}
 .oldline{flex-basis:100%;font-size:var(--fs-xs);color:var(--c-warn-text)}
 .pc-more>summary{list-style:none;cursor:pointer;color:var(--c-primary-500);font-size:var(--fs-sm);font-weight:600;min-height:44px;display:flex;align-items:center;gap:4px}
 .pc-more>summary::-webkit-details-marker{display:none}
@@ -352,7 +359,7 @@ body.v2.noscroll{overflow:hidden}
  .grp>summary{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:24px;align-items:center}
  .grp>summary .gtrend{grid-column:2;grid-row:1/span 2;margin:0}
  .cards{display:block;background:#fff;border-radius:var(--r-md);border:1px solid var(--c-border);overflow:hidden}
- .cardhead,.pc{display:grid;grid-template-columns:20px 26px 72px 70px minmax(96px,1fr) 46px minmax(110px,150px) 66px minmax(90px,120px) 112px 66px;column-gap:8px;align-items:center}
+ .cardhead,.pc{display:grid;grid-template-columns:20px 26px 72px 70px minmax(90px,1fr) 46px minmax(96px,140px) 66px minmax(80px,110px) minmax(150px,180px) 66px;column-gap:8px;align-items:center}
  .cardhead{position:sticky;top:var(--sticky-top,120px);z-index:5;background:#F7F9FB;border:1px solid var(--c-border);border-radius:var(--r-md) var(--r-md) 0 0;font-size:var(--fs-xs);color:var(--c-text-2);font-weight:600;padding:8px 10px;margin-top:12px}
  .pc{border:none;border-bottom:1px solid var(--c-divider);border-radius:0;box-shadow:none;padding:8px 10px;font-size:var(--fs-sm);margin:0}
  .pc:hover{background:#FAFBFD}
@@ -368,14 +375,17 @@ body.v2.noscroll{overflow:hidden}
  .c-s{grid-column:7;grid-row:1;font-size:var(--fs-xs);color:var(--c-text-2)}
  .c-d{grid-column:8;grid-row:1;margin:0;font-size:var(--fs-xs)}.c-d .m-only{display:none}
  .c-x{grid-column:9;grid-row:1;justify-content:flex-start}
- .pc-act .call,.pc-act .nocall,.pc-act .dis-call{grid-column:10;grid-row:1}
+ .c-ph{grid-column:10;grid-row:1;margin:0}
+ .ph-line{min-height:0;font-size:var(--fs-xs);gap:4px;flex-wrap:wrap}
+ .ph-lb{min-width:0}
+ .ph-n{font-size:var(--fs-sm)}
+ .cp{min-height:24px;padding:0 6px;font-size:var(--fs-2xs)}
+ .pc-act .call,.pc-act .nocall,.pc-act .dis-call{display:none}
  .pc-act .srcb{grid-column:11;grid-row:1}
- .pc-act .nocall{display:block;color:var(--c-text-muted);font-size:var(--fs-xs)}
  .pc-act .btn{min-height:34px;font-size:var(--fs-xs);padding:0 8px;border-radius:8px;width:100%}
  .v2 .pc-act .srcb.btn-primary{background:#fff;color:var(--c-primary-700);border-color:var(--c-border)}
  .pc-act .btn .sub{display:none}
- .pc-act .call .ico{display:none}
- .oldline{grid-column:10/span 2;grid-row:2;font-size:var(--fs-2xs)}
+ .oldline{grid-column:10/span 2;grid-row:2;display:block;font-size:var(--fs-2xs)}
  .pc-more{grid-column:1/-1;grid-row:3}
  .pc-more>summary{position:absolute;left:4px;top:8px;min-height:28px;width:24px;font-size:0;color:var(--c-text-2)}
  .pc-more>summary::after{content:"▸";font-size:13px;width:22px;height:22px;border:1px solid var(--c-border);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff}
@@ -385,7 +395,7 @@ body.v2.noscroll{overflow:hidden}
 }
 @media print{body{display:none}}
 </style></head><body class="v2">
-<div class="pv-banner" role="note">預覽版，尚未正式上線</div><div class="appbar" id="top"><h1>同仁物件報表</h1><span class="stamp">10/29 資料 · 01:52 產生</span></div><nav class="topnav" aria-label="主選單"><a class="brand" href="index.html">同仁物件報表</a><a class="nl on" href="index.html">今日</a><details class="dd"><summary class="">生活圈 ▾</summary><div class="ddm"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 228 · 新 +3</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 479 · 新 +7</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 641 · 新 +10</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 229 · 新 +1</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 879 · 新 +15</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 653 · 新 +6</span></a><div class="zl off"><b>龜山(全區)</b><span>準備中</span></div></div></details><a class="nl" href="owners.html">屋主自售</a><a class="nl" href="delisted.html">已下架屋主</a><a class="nl" href="zones.html">7 圈新上架</a><a class="nl" href="market_lookup.html">行情查詢</a><span class="grow"></span><span class="stamp">10/29 資料 · 01:52 產生</span></nav><div class="pii" role="note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>內含個資，請勿外傳或截圖</div>
+<div class="pv-banner" role="note">預覽版，尚未正式上線</div><div class="appbar" id="top"><h1>同仁物件報表</h1><span class="stamp">10/29 資料 · 02:01 產生</span></div><nav class="topnav" aria-label="主選單"><a class="brand" href="index.html">同仁物件報表</a><a class="nl on" href="index.html">今日</a><details class="dd"><summary class="">生活圈 ▾</summary><div class="ddm"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 228 · 新 +3</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 479 · 新 +7</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 641 · 新 +10</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 229 · 新 +1</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 879 · 新 +15</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 653 · 新 +6</span></a><div class="zl off"><b>龜山(全區)</b><span>準備中</span></div></div></details><a class="nl" href="owners.html">屋主自售</a><a class="nl" href="delisted.html">已下架屋主</a><a class="nl" href="zones.html">7 圈新上架</a><a class="nl" href="market_lookup.html">行情查詢</a><span class="grow"></span><span class="stamp">10/29 資料 · 02:01 產生</span></nav><div class="pii" role="note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>內含個資，請勿外傳或截圖</div>
 <main class="wrap"><h1 class="ph">同仁物件報表</h1>
 <div class="h2">今日重點 <small>點一下直接看清單</small></div><div class="kpis"><a class="kpi k-new" href="zones.html"><i class="bar"></i><b>73</b><span>新上架</span><small>7 生活圈合計（其他區 82）</small></a><a class="kpi k-drop" href="zones.html" data-q="tab=dr"><i class="bar"></i><b>2</b><span>今日降價</span><small>各生活圈合計</small></a><a class="kpi k-owner" href="owners.html" data-q="nw=1&ph=0"><i class="bar"></i><b>3</b><span>新屋主</span><small>屋主自售新出現</small></a><a class="kpi k-rel" href="zones.html" data-q="tab=rl"><i class="bar"></i><b>6</b><span>重新上架</span><small>以前出現過又刊登</small></a><a class="fakesearch" href="market_lookup.html" data-q="focus=1"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>輸入社區名稱查行情…</a></div><div class="h2">生活圈 <small>6 區</small></div><div class="zlist"><a class="zc" href="xiaoguixi.html" data-zone="xiaoguixi"><div class="zt"><span class="zn">小檜溪</span><span class="zs">在售 228</span></div><div class="zchips"><span class="tag t-soft-new">新 +3</span><span class="tag t-drop">↓ 降 1</span></div><div class="abc" role="img" aria-label="A 10、B 66、C 107、未評等 45"><i class="a" style="width:4.4%"></i><i class="b" style="width:28.9%"></i><i class="c" style="width:46.9%"></i><i class="n" style="width:19.7%"></i></div><div class="abcl"><span class="la">A <em>10</em></span><span class="lb">B <em>66</em></span><span class="lc">C <em>107</em></span><span>— 45</span></div></a><a class="zc" href="zone_bade_danan.html" data-zone="bade_danan"><div class="zt"><span class="zn">八德大南(大湳)</span><span class="zs">在售 479</span></div><div class="zchips"><span class="tag t-soft-new">新 +7</span><span class="tag t-drop">↓ 降 1</span></div><div class="abc" role="img" aria-label="A 77、B 86、C 218、未評等 98"><i class="a" style="width:16.1%"></i><i class="b" style="width:18.0%"></i><i class="c" style="width:45.5%"></i><i class="n" style="width:20.5%"></i></div><div class="abcl"><span class="la">A <em>77</em></span><span class="lb">B <em>86</em></span><span class="lc">C <em>218</em></span><span>— 98</span></div></a><a class="zc" href="zone_bakuo.html" data-zone="bakuo"><div class="zt"><span class="zn">八擴</span><span class="zs">在售 641</span></div><div class="zchips"><span class="tag t-soft-new">新 +10</span><span class="tag t-zero">降 0</span></div><div class="abc" role="img" aria-label="A 102、B 231、C 219、未評等 89"><i class="a" style="width:15.9%"></i><i class="b" style="width:36.0%"></i><i class="c" style="width:34.2%"></i><i class="n" style="width:13.9%"></i></div><div class="abcl"><span class="la">A <em>102</em></span><span class="lb">B <em>231</em></span><span class="lc">C <em>219</em></span><span>— 89</span></div></a><a class="zc" href="zone_daxi_puding.html" data-zone="daxi_puding"><div class="zt"><span class="zn">大溪埔頂</span><span class="zs">在售 229</span></div><div class="zchips"><span class="tag t-soft-new">新 +1</span><span class="tag t-zero">降 0</span></div><div class="abc" role="img" aria-label="A 44、B 33、C 104、未評等 48"><i class="a" style="width:19.2%"></i><i class="b" style="width:14.4%"></i><i class="c" style="width:45.4%"></i><i class="n" style="width:21.0%"></i></div><div class="abcl"><span class="la">A <em>44</em></span><span class="lb">B <em>33</em></span><span class="lc">C <em>104</em></span><span>— 48</span></div></a><a class="zc" href="zone_yiwen.html" data-zone="yiwen"><div class="zt"><span class="zn">藝文特區</span><span class="zs">在售 879</span></div><div class="zchips"><span class="tag t-soft-new">新 +15</span><span class="tag t-zero">降 0</span></div><div class="abc" role="img" aria-label="A 132、B 144、C 478、未評等 125"><i class="a" style="width:15.0%"></i><i class="b" style="width:16.4%"></i><i class="c" style="width:54.4%"></i><i class="n" style="width:14.2%"></i></div><div class="abcl"><span class="la">A <em>132</em></span><span class="lb">B <em>144</em></span><span class="lc">C <em>478</em></span><span>— 125</span></div></a><a class="zc" href="zone_daye_dayou.html" data-zone="daye_dayou"><div class="zt"><span class="zn">大業大有</span><span class="zs">在售 653</span></div><div class="zchips"><span class="tag t-soft-new">新 +6</span><span class="tag t-zero">降 0</span></div><div class="abc" role="img" aria-label="A 110、B 178、C 286、未評等 79"><i class="a" style="width:16.8%"></i><i class="b" style="width:27.3%"></i><i class="c" style="width:43.8%"></i><i class="n" style="width:12.1%"></i></div><div class="abcl"><span class="la">A <em>110</em></span><span class="lb">B <em>178</em></span><span class="lc">C <em>286</em></span><span>— 79</span></div></a></div><div class="off" data-zone="guishan">龜山(全區)（準備中）</div><div class="h2">其他報表</div><div class="rlist"><a href="owners.html"><span class="grow">屋主自售</span><span>在售 366 · 新 3</span></a><a href="delisted.html"><span class="grow">已下架屋主</span><span>202 · 有電話 15</span></a><a href="zones.html"><span class="grow">7 生活圈新上架</span><span>今日 155</span></a><a href="market_lookup.html"><span class="grow">社區行情查詢</span><span>實價登錄統計</span></a></div>
 </main>
@@ -411,6 +421,12 @@ body.v2.noscroll{overflow:hidden}
  });
  d.addEventListener('keydown',function(e){if(e.key==='Escape')closeSheet();
   if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('nq')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});
+ function copyText(s,b){
+  function ok(){var o=b.textContent;b.textContent='已複製';b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done');},1200);}
+  function fb(){var a=d.createElement('textarea');a.value=s;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;left:0;opacity:0';d.body.appendChild(a);a.select();a.setSelectionRange(0,s.length);
+   try{if(d.execCommand('copy'))ok();}catch(e){}d.body.removeChild(a);}
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(ok,fb);else fb();}
+ d.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button.cp');if(b){e.preventDefault();copyText(b.getAttribute('data-copy')||'',b);}});
  var fab=$('fab');
  if(fab){window.addEventListener('scroll',function(){fab.hidden=window.scrollY<window.innerHeight*2;},{passive:true});
   fab.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
