@@ -222,7 +222,6 @@ body.v2.noscroll{overflow:hidden}
 .c-m{font-size:var(--fs-xs);color:var(--c-text-muted);margin-top:2px;line-height:1.5}
 .c-m>span:not(:empty)~span:not(:empty)::before{content:" · "}
 .d-only{display:none}
-.tbl-head{display:none}
 .gscroll{display:none}
 .stbl{background:#fff;border:1px solid var(--c-border);border-radius:var(--r-lg);margin-top:12px;padding:0 12px}
 .stbl>summary{cursor:pointer;color:var(--c-primary-500);font-weight:600;min-height:44px;display:flex;align-items:center}
@@ -401,8 +400,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  .grp>summary{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:24px;align-items:center}
  .grp>summary .gtrend{grid-column:2;grid-row:1/span 2;margin:0}
  .tbl{--tw:1774px;margin-top:12px}
- .tbl-head{display:block;position:sticky;top:var(--sticky-top,120px);z-index:6;overflow:hidden;background:#F7F9FB;border:1px solid var(--c-border);border-bottom:none;border-radius:var(--r-md) var(--r-md) 0 0}
- .tscroll{overflow-x:auto;border:1px solid var(--c-border);border-radius:0 0 var(--r-md) var(--r-md);background:#fff}
+ .tscroll{overflow:auto;max-height:calc(100vh - var(--sticky-top,120px) - 16px);min-height:320px;border:1px solid var(--c-border);border-radius:var(--r-md);background:#fff;overscroll-behavior-x:contain}
  .tscroll .grp{width:max-content;min-width:var(--vw,100%);overflow:visible;border:none;border-bottom:1px solid var(--c-border);border-radius:0;box-shadow:none;margin:0}
  .tscroll .grp>summary{position:sticky;left:0;width:var(--vw,100%);background:#fff;z-index:4}
  .gbody{padding:0;background:#fff}
@@ -413,7 +411,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  .gscroll{display:inline-flex;align-items:center;gap:2px;margin-right:auto;font-size:var(--fs-xs);color:var(--c-text-muted)}
  .cards{display:block;width:var(--tw);background:#fff;border:none;border-radius:0;overflow:visible;margin:0}
  .cardhead,.pc{display:grid;grid-template-columns:24px 28px 72px 100px 150px 150px 70px 110px 56px 90px 70px 50px 110px 120px 70px 86px 120px 120px 70px;column-gap:6px;align-items:start;width:var(--tw);--rowbg:#fff}
- .cardhead{--rowbg:#F7F9FB;font-size:var(--fs-xs);font-weight:600;color:var(--c-text-2);padding:8px 0;align-items:center}
+ .cardhead{--rowbg:#F7F9FB;font-size:var(--fs-xs);font-weight:600;color:var(--c-text-2);padding:8px 0;align-items:center;position:sticky;top:0;z-index:8;background:#F7F9FB;border-bottom:1px solid var(--c-border)}
  .cardhead>*{white-space:nowrap;overflow:hidden}
  .cardhead>*{grid-row:1}
  .cardhead>:nth-child(7){grid-column:7}
@@ -430,7 +428,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  .cardhead>:nth-child(18){grid-column:18}
  .cardhead>:nth-child(19){grid-column:19}
  .r3>span:not(:empty)~span:not(:empty)::before,.ln-b>div:not(:empty)~div:not(:empty)::before,.c-m>span:not(:empty)~span:not(:empty)::before,.c-r>span:not(:empty)~span:not(:empty)::before{content:none}
- .cardhead>:nth-child(-n+6){position:sticky;z-index:4;justify-self:start;align-self:stretch;display:flex;align-items:center;background:var(--rowbg)}
+ .cardhead>:nth-child(-n+6){position:sticky;z-index:4;justify-self:start;align-self:stretch;display:flex;align-items:center;background:#F7F9FB}
  .cardhead>:nth-child(3){justify-content:flex-end}
  .cardhead>:nth-child(1){grid-column:1/-1;left:0;width:30px}
  .cardhead>:nth-child(2){grid-column:2/-1;left:30px;width:34px}
@@ -441,7 +439,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  .pc{border:none;border-bottom:1px solid var(--c-divider);border-radius:0;box-shadow:none;padding:0;font-size:var(--fs-sm);margin:0;background:var(--rowbg)}
  .pc:hover{--rowbg:#FAFBFD}
  .pc.is-new{border-left:none;padding-left:0}
- .pc::before{content:"";grid-column:1/-1;grid-row:1;justify-self:start;position:sticky;left:0;width:30px;align-self:stretch;margin:0;background:var(--rowbg);z-index:4}
+ .pc::before{content:"";grid-column:1/-1;grid-row:1;justify-self:start;position:sticky;left:0;width:30px;align-self:stretch;margin:0;background:var(--rowbg,#fff);z-index:4}
  .pc.is-new::before{box-shadow:inset 4px 0 0 var(--c-new)}
  .pc .r1,.pc .r3,.pc .pc-act,.pc .ln-b,.pc .c-m,.pc .pc-more{display:contents}
  .pc>*,.pc .r1>*,.pc .r3>*,.pc .ln-b>*,.pc .c-m>*,.pc .pc-act>*{grid-row:1;min-width:0;margin-top:6px;margin-bottom:6px}
@@ -449,7 +447,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  .d-only{display:inline}
  .c-a .lbl,.c-p .lbl{display:none}
  .pc .c-g,.pc .c-p,.pc .c-n,.pc .c-ad,.pc .c-ph{margin-top:0;margin-bottom:0}
- .c-g,.c-p,.c-n,.c-ad,.c-ph{position:sticky;z-index:3;background:var(--rowbg);justify-self:start;align-self:stretch;margin:0;padding-top:6px;padding-bottom:6px}
+ .c-g,.c-p,.c-n,.c-ad,.c-ph{position:sticky;z-index:3;background-color:#fff;background:var(--rowbg,#fff);justify-self:start;align-self:stretch;margin:0;padding-top:6px;padding-bottom:6px}
  .c-g{grid-column:2/-1;left:30px;width:34px}.c-g .g{width:24px;height:24px;flex-basis:24px;font-size:14px;border-radius:4px}
  .c-p{grid-column:3/-1;left:64px;width:78px;padding-right:6px;font-size:var(--fs-md);text-align:right}.c-p small{font-size:var(--fs-xs)}
  .c-n{grid-column:4/-1;left:142px;width:106px;padding-right:6px;font-size:var(--fs-sm)}
@@ -490,7 +488,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
 }
 @media print{body{display:none}}
 </style></head><body class="v2">
-<div class="pv-banner" role="note">預覽版，尚未正式上線</div><div class="appbar" id="top"><h1>同仁物件報表</h1><span class="stamp">10/30 資料 · 00:38 產生</span></div><nav class="topnav" aria-label="主選單"><a class="brand" href="index.html">同仁物件報表</a><a class="nl" href="index.html">今日</a><details class="dd"><summary class="">生活圈 ▾</summary><div class="ddm"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 231 · 新 +0</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 492 · 新 +2</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 679 · 新 +5</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 227 · 新 +0</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 883 · 新 +4</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 653 · 新 +0</span></a><a class="zl" href="zone_guishan.html"><b>龜山(全區)</b><span>在售 4062 · 新 +10</span></a></div></details><a class="nl" href="owners.html">屋主自售</a><a class="nl" href="delisted.html">已下架屋主</a><a class="nl" href="zones.html">7 圈新上架</a><a class="nl" href="market_lookup.html">行情查詢</a><span class="grow"></span><span class="stamp">10/30 資料 · 00:38 產生</span></nav>
+<div class="pv-banner" role="note">預覽版，尚未正式上線</div><div class="appbar" id="top"><h1>同仁物件報表</h1><span class="stamp">10/31 資料 · 16:07 產生</span></div><nav class="topnav" aria-label="主選單"><a class="brand" href="index.html">同仁物件報表</a><a class="nl" href="index.html">今日</a><details class="dd"><summary class="">生活圈 ▾</summary><div class="ddm"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 231 · 新 +2</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 505 · 新 +10</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 681 · 新 +2</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 226 · 新 +0</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 886 · 新 +3</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 656 · 新 +1</span></a><a class="zl" href="zone_guishan.html"><b>龜山(全區)</b><span>在售 4070 · 新 +6</span></a></div></details><a class="nl" href="owners.html">屋主自售</a><a class="nl" href="delisted.html">已下架屋主</a><a class="nl" href="zones.html">7 圈新上架</a><a class="nl" href="market_lookup.html">行情查詢</a><span class="grow"></span><span class="stamp">10/31 資料 · 16:07 產生</span></nav>
 <main class="wrap"><h1 class="ph">同仁物件報表</h1>
 <p>找不到這個頁面。</p><p><a href="index.html">回首頁</a></p>
 
@@ -498,7 +496,7 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
 <footer class="foot">僅供公司同仁內部使用，內含個資，請勿外傳或截圖轉貼</footer>
 <button type="button" class="fab" id="fab" hidden aria-label="回到頂端">↑</button>
 <nav class="tabbar" aria-label="分頁"><a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>今日</a><button type="button" data-sheet="sh-zones"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>生活圈</button><a href="owners.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>屋主</a><a href="market_lookup.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/></svg>行情</a><button type="button" data-sheet="sh-more"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></svg>更多</button></nav>
-<div class="sheet" id="sh-zones" hidden role="dialog" aria-label="切換生活圈"><div class="handle"></div><div class="sh"><b>切換生活圈</b><button type="button" class="btn btn-text" data-close>關閉</button></div><div class="sb"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 231 · 新 +0</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 492 · 新 +2</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 679 · 新 +5</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 227 · 新 +0</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 883 · 新 +4</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 653 · 新 +0</span></a><a class="zl" href="zone_guishan.html"><b>龜山(全區)</b><span>在售 4062 · 新 +10</span></a></div></div><div class="sheet" id="sh-more" hidden role="dialog" aria-label="更多"><div class="handle"></div><div class="sh"><b>更多</b><button type="button" class="btn btn-text" data-close>關閉</button></div><div class="sb"><a class="zl" href="index.html"><b>今日重點</b><span>首頁</span></a><a class="zl" href="zones.html"><b>7 生活圈新上架</b><span>今日／近 7 天／降價／重新上架</span></a><a class="zl" href="owners.html"><b>屋主自售</b><span>全部在售</span></a><a class="zl" href="delisted.html"><b>已下架屋主</b><span>電話可能已失效</span></a><a class="zl" href="market_lookup.html"><b>社區行情查詢</b><span>實價登錄與開價統計</span></a></div></div><div class="dim" id="dim" hidden></div>
+<div class="sheet" id="sh-zones" hidden role="dialog" aria-label="切換生活圈"><div class="handle"></div><div class="sh"><b>切換生活圈</b><button type="button" class="btn btn-text" data-close>關閉</button></div><div class="sb"><a class="zl" href="xiaoguixi.html"><b>小檜溪</b><span>在售 231 · 新 +2</span></a><a class="zl" href="zone_bade_danan.html"><b>八德大南(大湳)</b><span>在售 505 · 新 +10</span></a><a class="zl" href="zone_bakuo.html"><b>八擴</b><span>在售 681 · 新 +2</span></a><a class="zl" href="zone_daxi_puding.html"><b>大溪埔頂</b><span>在售 226 · 新 +0</span></a><a class="zl" href="zone_yiwen.html"><b>藝文特區</b><span>在售 886 · 新 +3</span></a><a class="zl" href="zone_daye_dayou.html"><b>大業大有</b><span>在售 656 · 新 +1</span></a><a class="zl" href="zone_guishan.html"><b>龜山(全區)</b><span>在售 4070 · 新 +6</span></a></div></div><div class="sheet" id="sh-more" hidden role="dialog" aria-label="更多"><div class="handle"></div><div class="sh"><b>更多</b><button type="button" class="btn btn-text" data-close>關閉</button></div><div class="sb"><a class="zl" href="index.html"><b>今日重點</b><span>首頁</span></a><a class="zl" href="zones.html"><b>7 生活圈新上架</b><span>今日／近 7 天／降價／重新上架</span></a><a class="zl" href="owners.html"><b>屋主自售</b><span>全部在售</span></a><a class="zl" href="delisted.html"><b>已下架屋主</b><span>電話可能已失效</span></a><a class="zl" href="market_lookup.html"><b>社區行情查詢</b><span>實價登錄與開價統計</span></a></div></div><div class="dim" id="dim" hidden></div>
 <script type="application/json" id="page-meta">{"page": "404", "theme": "v2"}</script>
 <script>
 (function(){
@@ -541,13 +539,12 @@ table.sum{border-collapse:collapse;font-size:var(--fs-sm);width:100%;background:
  if(tb){window.addEventListener('scroll',function(){tb.classList.toggle('raised',tb.getBoundingClientRect().top<=parseFloat(getComputedStyle(tb).top)+0.5&&window.scrollY>0);},{passive:true});}
  if(window.innerWidth>=1024){Array.prototype.forEach.call(d.querySelectorAll('details.chartbox,details.today'),function(x){x.open=true;});}
  Array.prototype.forEach.call(d.querySelectorAll('.tbl'),function(tb2){
-  var h=tb2.querySelector('.tbl-head'),s=tb2.querySelector('.tscroll');if(!h||!s)return;
+  var s=tb2.querySelector('.tscroll');if(!s)return;
   function m(){tb2.style.setProperty('--vw',s.clientWidth+'px');}
   m();window.addEventListener('resize',m);window.addEventListener('load',m);
-  s.addEventListener('scroll',function(){h.scrollLeft=s.scrollLeft;},{passive:true});
  });
  d.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-hscroll]');if(!b)return;
-  var s=d.querySelector('.tscroll');if(s)s.scrollBy({left:(+b.getAttribute('data-hscroll'))*480,behavior:'smooth'});});
+  var s=d.querySelector('.tscroll');if(s)s.scrollLeft+=(+b.getAttribute('data-hscroll'))*480;});
 })();
 </script>
 </body></html>
