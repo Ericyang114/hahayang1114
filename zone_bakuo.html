@@ -1151,7 +1151,7 @@ window.FM=(function(){
   if(c.__ci===undefined){c.__ci=conts.length;conts.push({c:c,xs:[]});}conts[c.__ci].xs.push(x);
  });
  var grps=Array.prototype.slice.call(d.querySelectorAll('details.grp'));
- var DEF={ph:!!meta.defph};
+ var DEF={ph:!!meta.defph},LB=meta.labels||{};
  function empty(){return {q:'',t:[null,null],u:[null,null],a:[null,null],y:[null,null],rm:[],g:[],pk:'',o:'',n7:false,dr:false,ph:false,nw:false,rl:false,s:''};}
  function base(){var s=empty();s.ph=DEF.ph;return s;}
  var st=base(),extra={v:'',tab:''},sorted='';
@@ -1207,8 +1207,8 @@ window.FM=(function(){
   if(s.rm.length)L.push(['rm',s.rm.map(function(x){return x==='4'?'4+':x;}).join('·')+' 房']);
   if(s.g.length)L.push(['g',s.g.join('·')+' 級']);
   if(s.pk)L.push(['pk',s.pk==='1'?'有車位':'無車位']);if(s.o)L.push(['o',s.o==='o'?'屋主':'仲介']);
-  if(s.n7)L.push(['n7','7 天內']);if(s.dr)L.push(['dr','今日降價']);if(s.ph)L.push(['ph','有電話']);
-  if(s.nw)L.push(['nw','今日新上架']);if(s.rl)L.push(['rl','重新上架']);
+  if(s.n7)L.push(['n7',LB.n7||'7 天內']);if(s.dr)L.push(['dr','今日降價']);if(s.ph)L.push(['ph','有電話']);
+  if(s.nw)L.push(['nw',LB.nw||'今日新上架']);if(s.rl)L.push(['rl','重新上架']);
   return L;}
  function dropKey(s,k){if(RK.indexOf(k)>=0)s[k]=[null,null];else if(k==='rm'||k==='g')s[k]=[];else if(k==='pk'||k==='o'||k==='q')s[k]='';else s[k]=false;}
  function chipOn(k,s){if(k==='gA')return s.g.indexOf('A')>=0;if(k==='o')return s.o==='o';if(k==='pk')return s.pk==='1';return !!s[k];}
